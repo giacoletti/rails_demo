@@ -10,7 +10,10 @@ gem 'bootsnap', '>= 1.4.4', require: false
 gem 'rack-cors'
 
 group :development, :test do
-
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'factory_bot_rails'
+  gem 'pry-rails' #debugger
 end
 
 group :development do
