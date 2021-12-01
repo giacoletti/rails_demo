@@ -26,3 +26,4 @@ Things you may want to cover:
 ## Acknowledgments
 
 - [Error Handling in Rails — The Modular Way](https://medium.com/rails-ember-beyond/error-handling-in-rails-the-modular-way-9afcddd2fe1b)
+- [Thomas](https://github.com/tochman)
