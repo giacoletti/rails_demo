@@ -1,14 +1,20 @@
 class Api::ArticlesController < ApplicationController
   before_action :validate_params_presence, only: [:create]
-  
+
   def index
     articles = Article.all
     render json: { articles: articles }
   end
 
   def show
-    article = Article.find(params["id"])
-    render json: { article: article }
+    begin
+      article = Article.find(params["id"])
+      render json: { article: article }
+    rescue ActiveRecord::RecordNotFound => e
+      render json: { 
+        message: "Unfortunately we cannot find the article you are looking for." 
+      }, status: 404
+    end
   end
 
   def create
