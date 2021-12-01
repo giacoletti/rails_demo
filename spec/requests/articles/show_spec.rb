@@ -17,11 +17,11 @@ describe 'GET /api/articles/:id' do
     end
 
     it 'is expected to respond with the requested article title' do
-      expect(response_json['title']).to eq 'This is the latest news'
+      expect(response_json['article']['title']).to eq 'This is the latest news'
     end
 
     it 'is expected to respond with the requested article body' do
-      expect(response_json['content']).to eq 'And this is some content'
+      expect(response_json['article']['content']).to eq 'And this is some content'
     end
   end
 
@@ -31,7 +31,6 @@ describe 'GET /api/articles/:id' do
     end
 
     it 'is expected to respond with status 404' do
-      binding.pry
       expect(subject.status).to eq 404
     end
 

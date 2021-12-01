@@ -12,11 +12,11 @@ describe 'GET /api/articles' do
     end
 
     it 'is expected to return 3 articles' do
-      expect(response_json.count).to eq 3
+      expect(response_json['articles'].count).to eq 3
     end
 
     it 'is expected to respond with an article with title "My Own Title"' do
-      expect(response_json.first['title']).to eq 'My Own Title'
+      expect(response_json['articles'].first['title']).to eq 'My Own Title'
     end
   end
 end
