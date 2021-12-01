@@ -11,9 +11,7 @@ class Api::ArticlesController < ApplicationController
       article = Article.find(params["id"])
       render json: { article: article }
     rescue ActiveRecord::RecordNotFound => e
-      render json: { 
-        message: "Unfortunately we cannot find the article you are looking for." 
-      }, status: 404
+      render_error("Unfortunately we cannot find the article you are looking for.", 404)
     end
   end
 
@@ -22,11 +20,15 @@ class Api::ArticlesController < ApplicationController
     if article.persisted?
       render json: { article: article }, status: 201
     else
-      render json: { message: article.errors.full_messages.to_sentence }, status: 422
+      render_error(article.errors.full_messages.to_sentence, 422)
     end
   end
 
   private
+
+  def render_error(message, status)
+    render json: { message: message }, status: status
+  end
 
   def validate_params_presence
     render json: { message: "Missing params" }, status: 422 if params[:article].nil?
