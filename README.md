@@ -27,3 +27,7 @@ Things you may want to cover:
 
 - [Error Handling in Rails — The Modular Way](https://medium.com/rails-ember-beyond/error-handling-in-rails-the-modular-way-9afcddd2fe1b)
 - [Thomas](https://github.com/tochman)
+
+## License
+
+The software is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
