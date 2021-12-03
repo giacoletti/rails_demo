@@ -1,4 +1,5 @@
 class Api::ArticlesController < ApplicationController
+  before_action :authenticate_user!, only: [:create]
   before_action :validate_params_presence, only: [:create]
 
   def index
