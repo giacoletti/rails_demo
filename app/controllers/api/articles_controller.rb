@@ -25,6 +25,15 @@ class Api::ArticlesController < ApplicationController
     end
   end
 
+  def edit
+    begin
+      article = Article.find(params["id"])
+      render json: { article: article }
+    rescue ActiveRecord::RecordNotFound => e
+      render_error("Unfortunately we cannot find the article you are looking for.", 404)
+    end
+  end
+
   private
 
   def render_error(message, status)
